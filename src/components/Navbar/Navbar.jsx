@@ -9,7 +9,7 @@ const buildLinkClass = ({ isActive }) => {
 export const Navbar = () => {
   return (
     <nav className={css.nav}>
-      <ul>
+      <ul className={css.list}>
         <li>
           <NavLink to="/" className={buildLinkClass}>
             Home

@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
+import HomePage from "./pages/HomePage";
+import MoviesPage from "./pages/MoviesPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -7,16 +10,16 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<div>Home page</div>} />
-        <Route path="/movies" element={<div>MoviesPage</div>} />
-        <Route path="/movies/:movieId" element={<div>MovieDetailsPage</div>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        {/* <Route path="/movies/:movieId" element={<div>MovieDetailsPage</div>} />
         <Route
           path="/movies/:movieId/cast"
           element={<div>MovieDetailsPage</div>}
         />
-        <Route path="/movies/:movieId/cast" element={<div>MovieCast</div>} />
-        <Route path="/" element={<div>Home page</div>} />
-        <Route path="*" element={<div>Not found</div>} />
+        <Route path="/movies/:movieId/cast" element={<div>MovieCast</div>} /> */}
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
