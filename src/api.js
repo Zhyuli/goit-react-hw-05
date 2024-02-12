@@ -1,23 +1,29 @@
-// https://api.themoviedb.org/3/trending/movie/day?api_key=b3069c2e92ce05da0ce90578bcdb5f0a;
 import axios from "axios";
 
 const API_KEY = "b3069c2e92ce05da0ce90578bcdb5f0a";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
-export const fetchData = async (query) => {
-  const url = `search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+export const getMovies = async ({ abortController }) => {
+  const options = {
+    params: {
+      api_key: API_KEY,
+      language: "en-US",
+      page: 1,
+    },
+    signal: abortController.signal,
+  };
+  const response = await axios.get("trending/movie/day", options);
 
+  return response.data.results;
+};
+
+export const getMovieById = async (movieId) => {
   const options = {
     params: {
       api_key: API_KEY,
     },
   };
+  const response = await axios.get(`movie/${movieId}`, options);
 
-  try {
-    const response = await axios.get(url, options);
-    return response.data;
-  } catch (error) {
-    console.error("This didn't work.");
-    throw error;
-  }
+  return response.data;
 };
