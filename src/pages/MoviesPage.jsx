@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovies } from "../api";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../components/PageTitle";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,6 @@ export default function MoviesPage() {
           abortController: controller,
         });
         setMovies(fechedMovies);
-        // console.log(response.data.results);
       } catch (error) {
         if (error.code !== "ERR_CANCELED") {
           setError(true);
@@ -30,7 +30,7 @@ export default function MoviesPage() {
 
   return (
     <div>
-      <h3>Movie list</h3>
+      <PageTitle>Trending today</PageTitle>
       {error && <p>ERROR</p>}
 
       {movies.length > 0 && (
