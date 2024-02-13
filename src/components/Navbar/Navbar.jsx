@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import css from "../Navbar.module.css";
+import css from "../Navbar/Navbar.module.css";
 import { NavLink } from "react-router-dom";
 
 const buildLinkClass = ({ isActive }) => {
