@@ -22,11 +22,12 @@ export const getByQuery = async (query) => {
     params: {
       api_key: API_KEY,
       language: "en-US",
+      query,
       page: 1,
       include_adult: false,
     },
   };
-  const response = await axios.get(`search/movie/${query}`, options);
+  const response = await axios.get("search/movie", options);
   return response.data;
 };
 
@@ -53,11 +54,12 @@ export const getReviews = async (movieId) => {
 };
 
 //Cast
-export const getCast = async (movieId) => {
+export const getCast = async (movieId, { abortController } = {}) => {
   const options = {
     params: {
       api_key: API_KEY,
     },
+    signal: abortController?.signal,
   };
   const response = await axios.get(`movie/${movieId}/credits`, options);
   return response.data;

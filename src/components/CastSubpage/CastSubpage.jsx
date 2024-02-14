@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getReviews } from "../api";
-import { Loader } from "./Loader";
-import { ErrorMessage } from "./ErrorMessage";
-import { ReviewList } from "./ReviewList";
+import { getCast } from "../../api";
+import { Loader } from "../Loader";
+import { ErrorMessage } from "../ErrorMessage";
+import { CastList } from "../CastList/CastList";
 
-export const ReviewsSub = () => {
+export const CastSubpage = () => {
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState([]);
+  const [cast, setCast] = useState([]);
   const [error, setError] = useState(false);
   const [load, setLoad] = useState(false);
 
@@ -18,18 +18,21 @@ export const ReviewsSub = () => {
       try {
         setLoad(true);
         setError(false);
-        const fetchedReviews = await getReviews(movieId, {
+        const fetchedCast = await getCast(movieId, {
           abortController: controller,
         });
 
-        setReviews(fetchedReviews.results);
+        setCast(fetchedCast.cast);
       } catch (error) {
-        setError(true);
+        if (error.code !== "ERR_CANCELED") {
+          setError(true);
+        }
       } finally {
         setLoad(false);
       }
     }
     fetchedData();
+
     return () => {
       controller.abort();
     };
@@ -39,11 +42,7 @@ export const ReviewsSub = () => {
     <div>
       {load && <Loader />}
       {error && <ErrorMessage />}
-      {reviews.length > 0 ? (
-        <ReviewList reviews={reviews} />
-      ) : (
-        <p>Sorry, movie does not have any reviews.</p>
-      )}
+      {cast && <CastList cast={cast} />}
     </div>
   );
 };
