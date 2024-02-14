@@ -1,0 +1,19 @@
+.moviePoster {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .movie-poster {
+        max-width: 150px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-poster {
+        max-width: 100px;
+
+    }
+}

@@ -4,6 +4,8 @@ import { getMovieById } from "../api";
 import { Loader } from "../components/Loader";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { MovieDetails } from "../components/MovieDetails";
+import { PageTitle } from "../components/PageTitle";
+import { BackToHome } from "../components/BackToHome";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -30,7 +32,9 @@ export default function MovieDetailsPage() {
   return (
     <div>
       <div>
-        <h1>{movie.original_title}</h1>
+        <PageTitle>Movie details</PageTitle>
+        <BackToHome>Back to home page</BackToHome>
+
         {load && <Loader />}
         {error && <ErrorMessage />}
 
