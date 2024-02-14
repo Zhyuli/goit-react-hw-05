@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, Outlet } from "react-router-dom";
 import { getMovieById } from "../api";
-import { Loader } from "../components/Loader";
-import { ErrorMessage } from "../components/ErrorMessage";
-import { MovieDetails } from "../components/MovieDetails";
-import { PageTitle } from "../components/PageTitle";
-import { BackToHome } from "../components/BackToHome";
+import { Loader } from "../components/Loader/Loader";
+import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
+import { MovieDetails } from "../components/MovieDetails/MovieDetails";
+import { PageTitle } from "../components/PageTitle/PageTitle";
+import { BackToHome } from "../components/BackToHome/BackToHome";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();

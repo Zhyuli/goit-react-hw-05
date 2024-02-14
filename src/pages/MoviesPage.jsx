@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getByQuery } from "../api";
 import { useSearchParams } from "react-router-dom";
-import { PageTitle } from "../components/PageTitle";
-import { SearchBar } from "../components/SearchBar";
+import { PageTitle } from "../components/PageTitle/PageTitle";
+import { SearchBar } from "../components/SearchBar/SearchBar";
 import { MovieList } from "../components/MovieList/MovieList";
-import { ErrorMessage } from "../components/ErrorMessage";
-import { Loader } from "../components/Loader";
+import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
+import { Loader } from "../components/Loader/Loader";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);

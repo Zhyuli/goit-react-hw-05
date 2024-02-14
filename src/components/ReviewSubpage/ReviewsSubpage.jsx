@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviews } from "../../api";
-import { Loader } from "../Loader";
-import { ErrorMessage } from "../ErrorMessage";
+import { Loader } from "../Loader/Loader";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { ReviewList } from "../ReviewList/ReviewList";
 
 export const ReviewsSubpage = () => {
