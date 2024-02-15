@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "../api";
 import { Loader } from "../components/Loader/Loader";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
 import { MovieDetails } from "../components/MovieDetails/MovieDetails";
 import { PageTitle } from "../components/PageTitle/PageTitle";
-import { BackToHome } from "../components/BackToHome/BackToHome";
+import { BackLink } from "../components/BackToHome/BackLink";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [error, setError] = useState(false);
   const [load, setLoad] = useState(false);
+
+  const location = useLocation();
+  const backLinkRef = useRef(location.state);
 
   useEffect(() => {
     async function fetchedData() {
@@ -33,7 +36,7 @@ export default function MovieDetailsPage() {
     <div>
       <div>
         <PageTitle>Movie details</PageTitle>
-        <BackToHome>Back to home page</BackToHome>
+        <BackLink href={backLinkRef.current ?? "/"}>Go back</BackLink>
 
         {load && <Loader />}
         {error && <ErrorMessage />}

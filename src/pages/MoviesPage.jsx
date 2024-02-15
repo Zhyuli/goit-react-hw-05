@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getByQuery } from "../api";
 import { useSearchParams } from "react-router-dom";
-import { PageTitle } from "../components/PageTitle/PageTitle";
 import { SearchBar } from "../components/SearchBar/SearchBar";
 import { MovieList } from "../components/MovieList/MovieList";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
@@ -30,10 +29,12 @@ export default function MoviesPage() {
 
     async function fetchedMovies() {
       try {
-        const fechedMovies = await getByQuery({
+        setLoad(true);
+        setError(false);
+        const fechedMovies = await getByQuery(searchedMovie, {
           abortController: controller,
         });
-        setMovies(fechedMovies);
+        setMovies(fechedMovies.results);
       } catch (error) {
         if (error.code !== "ERR_CANCELED") {
           setError(true);
@@ -50,7 +51,6 @@ export default function MoviesPage() {
 
   return (
     <div>
-      <PageTitle>Trending today</PageTitle>
       {load && <Loader />}
       {error && <ErrorMessage />}
       <SearchBar value={searchedMovie} onSearch={handleSubmit} />

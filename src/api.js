@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_KEY = "b3069c2e92ce05da0ce90578bcdb5f0a";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
+
 //Trending
 export const getMovies = async ({ abortController }) => {
   const options = {
@@ -17,7 +18,10 @@ export const getMovies = async ({ abortController }) => {
 };
 
 //Search
-export const getByQuery = async (query) => {
+export const getByQuery = async (
+  query,
+  abortController = new AbortController()
+) => {
   const options = {
     params: {
       api_key: API_KEY,
@@ -26,6 +30,7 @@ export const getByQuery = async (query) => {
       page: 1,
       include_adult: false,
     },
+    signal: abortController.signal,
   };
   const response = await axios.get("search/movie", options);
   return response.data;
