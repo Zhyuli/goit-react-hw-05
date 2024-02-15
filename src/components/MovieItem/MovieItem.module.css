@@ -1,19 +1,14 @@
-.moviePoster {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+.box {
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-    .movie-poster {
-        max-width: 150px;
+.title {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
 
-    }
-}
-
-@media (max-width: 480px) {
-    .movie-poster {
-        max-width: 100px;
-
-    }
 }

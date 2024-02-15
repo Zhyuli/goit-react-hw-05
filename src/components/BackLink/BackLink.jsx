@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import css from "../BackToHome/BackToHome.module.css";
+import css from "../BackLink/BackLink.module.css";
 
 export const BackLink = ({ href, children }) => {
   return (

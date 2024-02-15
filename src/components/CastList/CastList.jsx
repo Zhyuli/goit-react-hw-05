@@ -1,8 +1,9 @@
 import { CastItem } from "../CastItem/CastItem";
+import css from "../CastList/CastList.module.css";
 
 export const CastList = ({ cast }) => {
   return (
-    <ul className="list">
+    <ul className={css.list}>
       {cast &&
         cast.map((item) => (
           <li key={item.id} className="{css.item}">

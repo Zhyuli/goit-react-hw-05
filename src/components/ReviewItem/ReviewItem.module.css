@@ -1,0 +1,18 @@
+.box {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+.author {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.content {
+    line-height: 1.5;
+    align-items: center;
+    justify-content: center;
+}

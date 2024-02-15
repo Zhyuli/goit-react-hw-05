@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "../api";
 import { Loader } from "../components/Loader/Loader";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
 import { MovieDetails } from "../components/MovieDetails/MovieDetails";
 import { PageTitle } from "../components/PageTitle/PageTitle";
-import { BackLink } from "../components/BackToHome/BackLink";
+import { BackLink } from "../components/BackLink/BackLink";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -37,17 +37,11 @@ export default function MovieDetailsPage() {
       <div>
         <PageTitle>Movie details</PageTitle>
         <BackLink href={backLinkRef.current ?? "/"}>Go back</BackLink>
-
         {load && <Loader />}
         {error && <ErrorMessage />}
 
         {movie && <MovieDetails movie={movie} />}
       </div>
-      <div>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
-      </div>
-      <Outlet />
     </div>
   );
 }

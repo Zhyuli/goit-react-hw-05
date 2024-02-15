@@ -1,0 +1,62 @@
+.infoBox {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.imgBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+.img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+
+
+.text,
+.genreList,
+.item,
+.link,
+.active {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+
+
+.link {
+    background-color: #50544D;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #6D6A75;
+}
