@@ -1,20 +1,18 @@
-header {
-    padding: 20px 0;
+.header {
+    padding: 5px 0;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
-form {
+.form {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 10px;
-
 }
 
-button {
+.button {
     padding: 10px 20px;
     border: none;
     background-color: #757575;
@@ -22,24 +20,20 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-
 }
 
-input {
+.input {
     width: 250px;
     padding: 10px 20px;
     border: 1px solid #ccc;
     font-size: 16px;
     border-radius: 5px;
-
 }
 
-
-input :focus {
+.input:focus {
     border-color: #888;
 }
 
-button :hover {
+.button:hover {
     background-color: #5a5a5a;
-    cursor: pointer;
 }
