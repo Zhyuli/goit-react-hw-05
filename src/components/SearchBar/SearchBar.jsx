@@ -5,12 +5,14 @@ export const SearchBar = ({ value, onSearch }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
+    const query = evt.target.elements.query.value;
+
     if (evt.target.elements.query.value.trim() === "") {
       toast.error("EMPTY STRING!");
       return;
     }
-    console.log(evt.target.elements.query.value);
-    onSearch(evt.target.elements.query.value);
+
+    onSearch(query);
     evt.target.reset();
   };
 
