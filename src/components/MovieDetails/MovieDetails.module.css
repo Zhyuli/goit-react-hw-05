@@ -32,21 +32,34 @@
 
 }
 
+.genreList {
+    display: flex;
+    flex-direction: column;
+}
 
-.text,
-.genreList,
-.item,
-.link,
-.active {
+.item {
     font-family: 'Roboto', sans-serif;
     margin-bottom: 10px;
 }
 
 .title {
     font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #333;
     margin-bottom: 20px;
 }
 
+.text {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.span {
+    color: #757575;
+    font-weight: bold;
+}
 
 
 .link {
@@ -55,6 +68,7 @@
     padding: 5px 10px;
     border-radius: 4px;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .active {

@@ -1,18 +1,37 @@
-.link {
-  color: black;
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.active {
-  color: lightcoral;
+.nav {
+  padding: 30px;
+  background-color: #e0e0e0;
 }
 
 .list {
   display: flex;
   gap: 20px;
   list-style: none;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  color: #50544D;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.3s;
+}
+
+.link:hover,
+.link:focus {
+  color: #757575;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.active {
+  color: #404040;
+  background-color: transparent;
+  text-decoration: underline;
 }

@@ -32,13 +32,18 @@ export const MovieDetails = ({
         <div className={css.content}>
           <h3 className={css.title}>{original_title}</h3>
           <p className={css.text}>
-            Overview : <span>{overview}</span>
+            <span className={css.span}>Overview: </span>
+            {overview}
           </p>
           <p className={css.text}>
-            Vote_average : <span>{vote_average}</span>
+            <span className={css.span}>Vote average: </span>
+            {vote_average}
           </p>
           <ul className={css.genreList}>
-            <p className={css.text}>Genres :</p>
+            <p className={css.text}>
+              {" "}
+              <span className={css.span}> Genres: </span>
+            </p>
             {genres &&
               genres.map((genre) => (
                 <li key={genre.id} className={css.item}>
